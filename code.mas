@@ -1,0 +1,280 @@
+// Puntero2 una posicion mas
+    Load PTR1
+    Add ONE
+    Store PTR2
+// Contador
+    Load N
+    Store cont
+
+// Main
+LoopMain, LoadI PTR1
+	// Guarda el dato1
+    Store d1
+    LoadI PTR2
+	// Guarda el dato2
+    Store d2
+	// Hace la suma para el promedio
+    Load d1
+    Add d2
+    Store sum
+	// Reinicia el resultado a 0
+    Load ZERO
+    Store result
+
+// Loop para division
+LoopDiv, Load sum
+	// Division por resta
+    Subt TWO
+    Store sum
+	// Condicion para cuando ya no quepa
+	// Osea que termine la division
+    SkipCond 000
+    Jump LoopResult
+    Jump DivResult
+
+// Para agregar iteracion de division
+LoopResult, Load result
+    Add ONE
+    Store result
+	// Regresar al loop de la division
+    Jump LoopDiv
+
+// Imprimir resultado, ya cuando termine el promedio
+DivResult, Load result
+    Output
+	StoreI PTR1
+	// Avanzar punteros
+    Load PTR1
+    Add ONE
+    Store PTR1
+
+    Load PTR2
+    Add ONE
+    Store PTR2
+	// Avanzar contador del array
+    Load cont
+    Subt ONE
+    Store cont
+	// Condicion para terminar o seguir
+    SkipCond 400
+    Jump LoopMain
+Halt
+
+
+d1,  HEX 0
+d2,  HEX 0
+sum, HEX 0
+result, HEX 0
+cont, HEX 0
+
+ZERO, HEX 0
+ONE,  HEX 1
+TWO,  HEX 2
+// 199 decimal
+N,  HEX 00C7
+
+PTR1, ADR datagiven
+PTR2, ADR datagiven
+
+
+datagiven, HEX 004b
+          HEX 004e
+          HEX 002d
+          HEX 0006
+          HEX 0021
+          HEX 0002
+          HEX 0038
+          HEX 001f
+          HEX 002d
+          HEX 0033
+          HEX 0059
+          HEX 000b
+          HEX 0047
+          HEX 0011
+          HEX 001c
+          HEX 0048
+          HEX 0010
+          HEX 0046
+          HEX 0015
+          HEX 0036
+          HEX 0064
+          HEX 001b
+          HEX 0062
+          HEX 0048
+          HEX 004d
+          HEX 0022
+          HEX 0028
+          HEX 0056
+          HEX 000a
+          HEX 002a
+          HEX 004f
+          HEX 0034
+          HEX 000f
+          HEX 0010
+          HEX 0020
+          HEX 0022
+          HEX 0029
+          HEX 0026
+          HEX 0034
+          HEX 005e
+          HEX 0003
+          HEX 0036
+          HEX 0033
+          HEX 0027
+          HEX 0000
+          HEX 0063
+          HEX 005a
+          HEX 0049
+          HEX 0029
+          HEX 0004
+          HEX 0056
+          HEX 0051
+          HEX 0034
+          HEX 0015
+          HEX 0060
+          HEX 000d
+          HEX 0041
+          HEX 0029
+          HEX 0002
+          HEX 0037
+          HEX 001d
+          HEX 005f
+          HEX 004c
+          HEX 0002
+          HEX 000f
+          HEX 003a
+          HEX 003b
+          HEX 004e
+          HEX 0018
+          HEX 0035
+          HEX 0037
+          HEX 0022
+          HEX 0059
+          HEX 0012
+          HEX 003b
+          HEX 000d
+          HEX 0049
+          HEX 001a
+          HEX 003c
+          HEX 0004
+          HEX 000a
+          HEX 0013
+          HEX 0037
+          HEX 0036
+          HEX 0031
+          HEX 000f
+          HEX 0020
+          HEX 0003
+          HEX 0007
+          HEX 0003
+          HEX 0038
+          HEX 0035
+          HEX 003b
+          HEX 0018
+          HEX 004c
+          HEX 004e
+          HEX 0037
+          HEX 0054
+          HEX 0015
+          HEX 002b
+          HEX 000c
+          HEX 0045
+          HEX 0059
+          HEX 000f
+          HEX 002c
+          HEX 0064
+          HEX 0038
+          HEX 0034
+          HEX 004e
+          HEX 0059
+          HEX 000a
+          HEX 0040
+          HEX 0021
+          HEX 0015
+          HEX 0000
+          HEX 0000
+          HEX 0034
+          HEX 0023
+          HEX 001a
+          HEX 0053
+          HEX 001b
+          HEX 004d
+          HEX 0009
+          HEX 0047
+          HEX 0056
+          HEX 0029
+          HEX 0063
+          HEX 0039
+          HEX 0027
+          HEX 0045
+          HEX 0014
+          HEX 0012
+          HEX 0051
+          HEX 0046
+          HEX 0008
+          HEX 0042
+          HEX 0033
+          HEX 0011
+          HEX 0005
+          HEX 0028
+          HEX 0007
+          HEX 003b
+          HEX 0008
+          HEX 0045
+          HEX 000a
+          HEX 0007
+          HEX 005f
+          HEX 0031
+          HEX 0002
+          HEX 003f
+          HEX 0018
+          HEX 0026
+          HEX 001e
+          HEX 000e
+          HEX 000d
+          HEX 0006
+          HEX 0051
+          HEX 002e
+          HEX 003c
+          HEX 0021
+          HEX 0015
+          HEX 0038
+          HEX 0058
+          HEX 002e
+          HEX 0053
+          HEX 003d
+          HEX 0047
+          HEX 000c
+          HEX 001e
+          HEX 0044
+          HEX 004c
+          HEX 0037
+          HEX 0048
+          HEX 002e
+          HEX 0004
+          HEX 0005
+          HEX 0042
+          HEX 0057
+          HEX 0031
+          HEX 002b
+          HEX 0050
+          HEX 0027
+          HEX 0030
+          HEX 0010
+          HEX 0038
+          HEX 0005
+          HEX 0044
+          HEX 005f
+          HEX 0042
+          HEX 000b
+          HEX 000f
+          HEX 001d
+          HEX 005d
+          HEX 0051
+          HEX 003a
+          HEX 0038
+          HEX 0037
+          HEX 005e
+          HEX 0042
+          HEX 0020
+          HEX 0000
